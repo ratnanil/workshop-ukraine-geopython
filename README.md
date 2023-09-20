@@ -16,3 +16,9 @@ To follow along in the workshop, please install the following software:
 - Next, install [`miniconda`](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html). This is optional if you are familiar with a different python package manager
 - Optional: Install `geopandas` and `rasterio` from `conda-forge`
 - Lastly, install [jupyter lab desktop](https://github.com/jupyterlab/jupyterlab-desktop#installation). Again, this is optional if you you know your way around a different IDE and have it customized for python.
+
+
+## Datasets
+
+- [Natural Earth 10m cultural vectors](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/)
+- [ Azores Great Whales Satellite Telemetry Program](https://filesender.switch.ch/filesender2/?s=download&token=408818fd-e401-43b3-a71b-e7eb0882f52c)
