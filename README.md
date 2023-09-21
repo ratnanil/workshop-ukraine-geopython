@@ -21,4 +21,4 @@ To follow along in the workshop, please install the following software:
 ## Datasets
 
 - [Natural Earth 10m cultural vectors](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/)
-- [ Azores Great Whales Satellite Telemetry Program](https://filesender.switch.ch/filesender2/?s=download&token=408818fd-e401-43b3-a71b-e7eb0882f52c)
+- [Azores Great Whales Satellite Telemetry Program](https://filesender.switch.ch/filesender2/?s=download&token=9a9b0db0-9321-446c-8eb9-9eb099319501)
