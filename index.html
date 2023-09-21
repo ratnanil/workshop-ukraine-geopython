@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Spatial Data Analysis in Python</title>
+
+	<link rel="stylesheet" href="revealjs/dist/reset.css">
+	<link rel="stylesheet" href="revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="revealjs/dist/theme/black.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="revealjs/plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<section class="blurred special" data-background-image="img/typewriter-ga6a497f4f_1280.jpg">
+					<h1 class="r-fit-text">Spatial Data Analysis in Python</h1>
+				</section>
+
+				<section>
+					<div class="r-hstack">
+						<div style="width: 40%; row-gap: 5px;">
+							<img data-src="img/rata.jpeg" style="border-radius: 100%; width: 50%;">
+						</div>
+						<div style="width: 50%;" class="large">
+							<div style="text-align: left;">
+
+								<h4>Nils Ratnaweera</h4>
+
+								<ul class="no-bullets">
+									<li>ZHAW School of Life Sciences and Facility Management</li>
+									<li>Institute of Natural Resource Sciences</li>
+									<li>Grüentalstrasse 14</li>
+									<li>8820 Wädenswil</li>
+								</ul>
+								<br><br>
+								<ul class="no-bullets">
+									<li>+41 (0) 58 934 55 63</li>
+									<li>nils.ratnaweera@zhaw.ch</li>
+								</ul>
+								<br><br>
+								<h4>Position at the ZHAW</h4>
+								<ul class="no-bullets">
+									<li>Research Associate at the Research Group for Geoinformatics </li>
+									<li><a
+											href="http://www.zhaw.ch/iunr/geoinformatik">www.zhaw.ch/iunr/geoinformatik</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="large" style="text-align: left;">
+
+
+
+
+						<br><br>
+						<!-- <h4>Educational background</h4>
+
+						<ul class="no-bullets">
+							<li>Bc.S. in Natural Resource Sciences (2013) at Zurich University of Applied Sciences</li>
+							<li>Mc.S. Life Sciences Specialisation in Natural Resource Sciences (2017) at Zurich
+								University of Applied Sciences</li>
+						</ul>
+						<br><br>
+						<h4>Professional milestones</h4>
+
+						<ul class="no-bullets">
+							<li>2016 - 2019 Research Assistant at the Research Group for Geoinformatics at Zurich
+								University of Applied Sciences</li>
+							<li>2013 Field Assistant in the Roe Deer Projekt of the University of Zurich</li>
+							<li>2010 Group Leader at Bergwaldprojekt</li>
+							<li>2009 Intern at the Centro Ecologico Akumal</li>
+							<li>2008 - 2009 Intern at the Great Basin Institute</li>
+						</ul> -->
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<section class="blurred special" data-background-image="img/python-1866944_1280.jpg">
+
+					<h2>Why Python?</h2>
+				</section>
+
+				<section data-background-transition="fade" data-background-image="img/pypl/pypl_7.png"
+					data-background-size="contain">
+					<aside class="notes">R</aside>
+				</section>
+				<section data-background-transition="fade" data-background-image="img/pypl/pypl_6.png"
+					data-background-size="contain">
+					<aside class="notes">PHP</aside>
+				</section>
+				<section data-background-transition="fade" data-background-image="img/pypl/pypl_5.png"
+					data-background-size="contain">
+					<aside class="notes">C/C++</aside>
+				</section>
+				<section data-background-transition="fade" data-background-image="img/pypl/pypl_4.png"
+					data-background-size="contain">
+					<aside class="notes">C#</aside>
+				</section>
+				<section data-background-transition="fade" data-background-image="img/pypl/pypl_3.png"
+					data-background-size="contain">
+					<aside class="notes">Evergreen JavaScript (Browser!)</aside>
+				</section>
+				<section data-background-transition="fade" data-background-image="img/pypl/pypl_2.png"
+					data-background-size="contain">
+					<aside class="notes">Java</aside>
+				</section>
+				<section data-background-transition="fade" data-background-image="img/pypl/pypl_1.png"
+					data-background-size="contain">
+					<aside class="notes">Python</aside>
+				</section>
+
+			</section>
+
+			<section>
+				<section data-auto-animate="" class="blurred special"
+					data-background-image="img/python-1866944_1280.jpg">
+
+					<h2><span data-id="why">Why</span> <span data-id="python">Python</span></h2>
+				</section>
+				<section data-auto-animate="" class="blurred special" data-background-image="img/fire-1008926_1280.jpg">
+					<h2><span data-id="why">Why</span><span class="highlight">,</span> <span
+							data-id="python">Python?</span></h2>
+				</section>
+				<section data-background-color="#000000">
+					<img data-src="img/python_environment_invert.png">
+					<aside class="notes">
+						<ul>
+							<li>Superfund sites are polluted locations in the United States requiring a long-term
+								response to clean up hazardous material contaminations.</li>
+							<li>If we work with Python, we have to choose a package manager and deal with virtual
+								environments</li>
+
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<div class="x-large" id="pip-conda">
+						<div>
+							<h3>Package Manager</h3>
+						</div>
+						<div>
+							<h3>Virtual Environment Management</h3>
+						</div>
+
+						<div class="fragment"><em>how are packages installed?</em></div>
+						<div class="fragment"><em>where are packages installed?</em></div>
+
+						<div class="fragment">pip</div>
+						<div class="fragment">venv or virtualenv</div>
+
+						<div class="fragment" style="grid-column: 1 / 3;">(mini-) conda / anaconda</div>
+						<div class="fragment" style="grid-column: 1 / 3;">mamba / micromamba</div>
+
+
+
+
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+				<section class="blurred special" data-background-image="img/ai-generated-8174214_1280.png"
+					data-auto-animate>
+					<h2 data-id="conda-title" style="font-size: var(--r-heading1-size)">Conda</h2>
+					<h2>What?</h2>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="conda-title">Conda</h2>
+					<ul>
+						<li class="fragment">
+							<div data-id="installation"><span class="highlight">Installation</span> of <em>Python
+									Modules / Libraries</em></div>
+						</li>
+						<li class="fragment">Managing <em><span class="highlight">Virtual Environments</span></em></li>
+					</ul>
+
+
+
+				</section>
+
+				<section data-auto-animate>
+					<div data-id="installation"><span class="highlight">Installation</span> of <em>Python Modules /
+							Libraries</em></div>
+
+					<img data-src="mermaid/install-python-modules-3.svg" alt="">
+				</section>
+
+				<section data-transition="fade">
+					<div>Managing <em><span class="highlight">Virtual Environments</span></em></div>
+					<img data-src="mermaid/install2.svg" style="width: 75%">
+				</section>
+				<section data-transition="fade">
+					<div>Managing <em><span class="highlight">Virtual Environments</span></em></div>
+					<img data-src="mermaid/install3.svg" style="width: 75%">
+
+				</section>
+
+
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate data-background-image="img/einstein-professor-humor-formula-preview.jpg"
+					class="blurred special">
+					<h2 style="font-size: var(--r-heading1-size)"><span data-id="conda-title">Conda</span></h2>
+					<h2>How?</h2>
+				</section>
+				<section>
+
+
+					<!-- <div class="r-hstack justify-start x-large" style="text-align: left;"><p>(Falls du letzte Woche bereits einen Environment namens <code>geopython</code> erstellt hast, wähle einen anderen Namen)</p></div> -->
+					<div data-id="conda-cmd" class="hljs bash code-snippet">
+						<span class="fragment highlight-current-blue" data-fragment-index="0">conda</span>
+						<span class="fragment highlight-current-blue" data-fragment-index="1">create</span>
+						<span class="fragment highlight-current-blue" data-fragment-index="2">--name</span>
+						<span class="fragment highlight-current-blue" data-fragment-index="4">geopython</span>
+					</div>
+
+					<br>
+
+					<div class="r-hstack justify-start xx-large">
+						<ul>
+							<li class="fragment custom bash-explained" data-fragment-index="0">Calls the program
+								<code>conda</code>
+							</li>
+							<li class="fragment custom bash-explained" data-fragment-index="1">Calls the function
+								<code>create</code>
+								from <code>conda</code>
+							</li>
+							<li class="fragment custom bash-explained" data-fragment-index="2">Is an argument of the
+								function...</li>
+							<li class="fragment custom bash-explained" data-fragment-index="3">...which says that the
+								environment's name will be specified next</li>
+							<li class="fragment custom bash-explained" data-fragment-index="4">Is the name of the new
+								environment</li>
+						</ul>
+					</div>
+
+				</section>
+
+				<section>
+					<p><span class="highlight">Your task:</span> </p>
+					<p class="x-large">Create a conda environment called <code>geopython</code> </p>
+
+
+					<pre><code data-trim class="bash">
+						conda create --name geopython 
+					</code></pre>
+
+				</section>
+
+				<section>
+
+					<p class="x-large">Now, activate your environment:</p>
+					<div data-id="conda-cmd" class="hljs bash code-snippet">
+						conda activate geopython
+					</div>
+
+				</section>
+
+				<section>
+
+
+					<!-- <div class="r-hstack justify-start x-large" style="text-align: left;"><p>(Falls du letzte Woche bereits einen Environment namens <code>geopython</code> erstellt hast, wähle einen anderen Namen)</p></div> -->
+					<div data-id="conda-cmd" class="hljs bash code-snippet">
+						<span class="fragment highlight-current-blue" data-fragment-index="0">conda</span>
+						<span class="fragment highlight-current-blue" data-fragment-index="1">install</span>
+						<span class="fragment highlight-current-blue" data-fragment-index="2">-c</span>
+						<span class="fragment highlight-current-blue" data-fragment-index="4">conda-forge</span>
+						<span class="fragment highlight-current-blue" data-fragment-index="5">geopandas</span>
+					</div>
+
+					<br>
+
+					<div class="r-hstack justify-start xx-large">
+						<ul>
+							<li class="fragment custom bash-explained" data-fragment-index="0">Calls the program
+								<code>conda</code>
+							</li>
+							<li class="fragment custom bash-explained" data-fragment-index="1">Calls the function
+								<code>install</code>
+								from <code>conda</code>
+							</li>
+							<li class="fragment custom bash-explained" data-fragment-index="2">Is an argument of the
+								function...</li>
+							<li class="fragment custom bash-explained" data-fragment-index="3">which says that the
+								channel's name will be specified next</li>
+							<li class="fragment custom bash-explained" data-fragment-index="4">Is the name of the
+								channel</li>
+							<li class="fragment custom bash-explained" data-fragment-index="5">Is the name of the
+								package to install</li>
+						</ul>
+					</div>
+
+				</section>
+				<section>
+
+					<p><span class="highlight">Your task:</span> </p>
+
+					<p class="x-large">Install the following packages from conda-forge:</p>
+
+					<ul class="x-large">
+						<li>geopandas</li>
+						<li>jupyterlab</li>
+						<li>rasterio</li>
+						<li>gdal</li>
+					</ul>
+
+					<pre><code data-trim class="sh" data-line-numbers="">
+						conda install -c conda-forge geopandas jupyterlab 
+						conda install -c conda-forge rasterio gdal
+					</code></pre>
+				</section>
+
+			</section>
+
+			<section>
+				<section class="blurred strokeme " data-background-image="img/15994040_ml.jpg"
+					data-background-size="contain">
+					<h2>Spatial Data Types</h2>
+				</section>
+
+				<section>
+					<div class="r-stack">
+						<img data-src="img/a6ce94cdd2e09a1da8aa6ec22336835.jpg" style="width: 40%;">
+						<img class="fragment fade-in" style="width: 40%;"
+							data-src="img/gis-layers-raster-categorical.jpg">
+						<img class="fragment fade-in" style="width: 40%;"
+							data-src="img/gis-layers-raster-continuous.jpg">
+						<img class="fragment fade-in" style="width: 40%;" data-src="img/gis-layers-polygon.jpg">
+						<img class="fragment fade-in" style="width: 40%;" data-src="img/gis-layers-lines.jpg">
+						<img class="fragment fade-in" style="width: 40%;" data-src="img/gis-layers-points.jpg">
+						<img class="fragment fade-in" style="width: 40%;" data-src="img/gis-layers-raster.jpg">
+						<img class="fragment fade-in" style="width: 40%;" data-src="img/gis-layers-vector.jpg">
+
+					</div>
+
+
+					<div class="footnote">
+						<div>
+							<p class="footer">Image: <a
+									href="https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s11-02-multiple-layer-analysis.html">saylordotorg.github.io</a>
+							</p>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<section class="blurred blurr-2px special"
+					data-background-image="img/Edinburgh_Road_Network_analysis_(6156201341).png">
+					<h2>Vector Data in Python</h2>
+
+					<div class="footnote">
+						<div>Image Source: <a
+								href="https://commons.wikimedia.org/wiki/File:Edinburgh_Road_Network_analysis_%286156201341%29.png">commons.wikimedia.org</a>
+						</div>
+					</div>
+
+				</section>
+
+				<section>
+					<p>Before we start:</p>
+
+					<ol class="x-large">
+						<li class="fragment">Start Jupyter Lab (Desktop)</li>
+						<li class="fragment">Browse to a reasonable location</li>
+						<li class="fragment">Create a new Notebook</li>
+						<li class="fragment">Create a new cell, write <code class="highlight">import shapely</code> and
+							execute that line with <kbd>Ctrl</kbd>+<kbd>Enter</kbd></li>
+						<li class="fragment">Give me a thumbs up 👍 if you are successful</li>
+					</ol>
+				</section>
+
+				<section data-auto-animate>
+
+					<div data-fragment-index="0" class="mytable fragment custom geodataframe"
+						style="grid-template-columns: repeat(6, auto);">
+						<div data-id="index">
+							<div>&nbsp;</div>
+							<div>0</div>
+							<div>1</div>
+							<div>2</div>
+							<div>3</div>
+							<div>4</div>
+							<div>5</div>
+							<div>6</div>
+							<div>7</div>
+							<div>8</div>
+							<div>9</div>
+						</div>
+						<div data-id="id">
+							<div>ID</div>
+							<div>2550</div>
+							<div>10437</div>
+							<div>9174</div>
+							<div>8773</div>
+							<div>2764</div>
+							<div>2513</div>
+							<div>9185</div>
+							<div>28521</div>
+							<div>26745</div>
+							<div>27391</div>
+						</div>
+
+						<div data-id="accuracy">
+							<div>Accuracy</div>
+							<div>439.128951</div>
+							<div>301.748542</div>
+							<div>301.748542</div>
+							<div>301.748542</div>
+							<div>301.748529</div>
+							<div>301.748529</div>
+							<div>301.748542</div>
+							<div>301.748542</div>
+							<div>301.748542</div>
+							<div>301.748542</div>
+						</div>
+						<div data-id="x">
+							<div>x</div>
+							<div>2681116</div>
+							<div>2681092</div>
+							<div>2681128</div>
+							<div>2681111</div>
+							<div>2681131</div>
+							<div>2681171</div>
+							<div>2681107</div>
+							<div>2681124</div>
+							<div>2681117</div>
+							<div>2681138</div>
+						</div>
+
+						<div data-id="y">
+							<div>y</div>
+							<div>1250648</div>
+							<div>1250672</div>
+							<div>1250683</div>
+							<div>1250683</div>
+							<div>1250692</div>
+							<div>1250711</div>
+							<div>1250712</div>
+							<div>1250720</div>
+							<div>1250725</div>
+							<div>1250725</div>
+						</div>
+
+
+
+						<div class="fragment custom geoseries" data-fragment-index="1">
+							<div>geometry</div>
+							<div class="fragment custom geometry" data-fragment-index="2">POINT(2681116 1250648)</div>
+							<div>POINT(2681092 1250672)</div>
+							<div>POINT(2681128 1250683)</div>
+							<div>POINT(2681111 1250683)</div>
+							<div>POINT(2681131 1250692)</div>
+							<div>POINT(2681171 1250711)</div>
+							<div>POINT(2681107 1250712)</div>
+							<div>POINT(2681124 1250720)</div>
+							<div>POINT(2681117 1250725)</div>
+							<div>POINT(2681138 1250725)</div>
+
+						</div>
+
+
+					</div>
+
+					<div class="r-stack">
+						<div class="fragment fade-in-then-out" data-fragment-index="0" style="color: green;">
+							<em>Geo</em>DataFrame
+						</div>
+						<div class="fragment fade-in-then-out" data-fragment-index="1" style="color: red;">GeoSeries
+						</div>
+						<div class="fragment fade-in-then-out" data-fragment-index="2" style="color: #8eaadd;">Geometry
+						</div>
+					</div>
+
+				</section>
+
+				<section>
+					<p class="x-large fragment fade-out">How you create a shapely Point object in Python:</p>
+					<pre><code data-trim class="python" data-line-numbers="">
+							import shapely
+							pnt1 = shapely.Point([8.68089, 47.21776])
+						</code></pre>
+
+					<p class="fragment x-large"><span class="highlight">Your task:</span> Create a point object of your
+						current location. <br> Tipp: use <a href="https://www.openstreetmap.org">openstreetmap.org</a>
+						to query your coordinates (right click → show address).</p>
+
+					<aside class="notes">
+						<ul>
+							<li>Demo this in jupyter lab. </li>
+							<li>point out, that the working directory is central (especially when starting jupyter lab desktop)</li>
+
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<p>Note:</p>
+
+					<ul class="x-large">
+						<li class="fragment">The order of the coordinates on openstreetmap.org (OSM) is Latitude,
+							Longitude</li>
+						<li class="fragment">However, shapely expects the order to be Longitude, Latitude (first x, then
+							y)</li>
+						<li class="fragment">The Coordinate Reference System (CRS) of the coordinates displayed on OSM
+							is WGS84 (EPSG: 4326)</li>
+						<li class="fragment">However, we cannot assign a CRS to a shapely object</li>
+						<li class="fragment">Querying a shapely object:
+
+							<pre class="fragment" style="font-size: xx-large;"><code data-trim class="python">
+									type(pnt1)   # returns the type of the object
+									pnt1         # returns a little image of the object
+									print(pnt1)  # prints a WKT representation of the object
+								</code></pre>
+						</li>
+					</ul>
+
+
+				</section>
+
+				<section>
+					<p><span class="highlight">Your task:</span> Repeat the last task by recording two further locations
+						(e.g. your work place and your favorite restaurant)</p>
+
+					<pre class="fragment"><code data-trim class="python" data-line-numbers="">
+
+							work = shapely.Point([8.68089, 47.21776])
+							restaurant = shapely.Point([8.67848, 47.22571])
+							swimmspot = shapely.Point([8.68501, 47.22425])
+						</code></pre>
+				</section>
+
+
+				<section>
+
+					<p class="x-large">We can now create a GeoSeries from our shapely objects:</p>
+					<pre><code data-trim class="python" data-line-numbers="">
+							import geopandas as gpd
+
+							places = gpd.GeoSeries([work, restaurant, swimmspot])
+						</code></pre>
+				</section>
+
+				<section>
+
+					<p>Note:</p>
+					<ul class="x-large">
+						<li class="fragment">GeoSeries (and GeoDataFrames) have two handy methods:</li>
+						<ul class="fragment">
+							<li><code class="highlight">.plot()</code> returns a static matplotlib plot</li>
+							<li><code class="highlight">.explore()</code> provides an interactive map</li>
+						</ul>
+						<li class="fragment">Since we have not provided a Coordinate Reference System → no basemap</li>
+						<li class="fragment">The function <code class="highlight">gpd.GeoSeries()</code> accepts CRS
+							Information (using the EPSG Code)
+							<pre class="fragment" style="font-size: large;"><code data-trim class="python" data-line-numbers="">
+									places = gpd.GeoSeries([work, restaurant, swimmspot], crs = 4326)
+								</code></pre>
+						</li>
+
+					</ul>
+				</section>
+
+				<section>
+					<ul class="no-bullets x-large">
+						<li class="fragment">A GeoSeries is a list of shapely objects with no attribute information.
+						</li>
+						<li class="fragment">To add attribute information, we need a GeoDataFrame:</li>
+					</ul>
+
+					<pre class="fragment"><code data-trim class="python" data-line-numbers="">
+							places_gdf = gpd.GeoDataFrame(geometry = places, crs = 4326)
+
+							places_gdf["names"] = ["Work", "Restaurant", "Swimmspot"]
+
+							places_gdf # note the difference to the GeoSeries
+						</code></pre>
+
+					<div class="mytable fragment" style="grid-template-columns: repeat(3, 1fr);">
+						<div>
+							<div>&nbsp;</div>
+							<div>0</div>
+							<div>1</div>
+							<div>2</div>
+						</div>
+						<div>
+							<div>geom</div>
+							<div class="code">POINT (8.68089 47.21776)</div>
+							<div class="code">POINT (8.67848 47.22571)</div>
+							<div class="code">POINT (8.68501 47.22425) </div>
+						</div>
+						<div class="fragment">
+							<div>names</div>
+							<div>Work</div>
+							<div>Restaurant</div>
+							<div>Swimmspot</div>
+						</div>
+
+					</div>
+				</section>
+
+				<section data-transition="fade">
+					<h3>Simple Features</h3>
+
+
+
+					<div class="simple-feature-table">
+
+						<!-- <div class="sf-tbl-header">Type</div>
+							<div class="sf-tbl-header">Example</div>
+							<div class="sf-tbl-header">WKT</div> -->
+
+						<div>Point</div>
+						<div><img data-src="img/sf/sf-point.png"></div>
+						<div class="fragment highlight-current-blue">POINT (30 10)</div>
+
+						<div>LineString</div>
+						<div><img data-src="img/sf/sf-linestring.png"></div>
+						<div class="fragment highlight-current-blue">LINESTRING (30 10, 10 30, 40 40)</div>
+
+						<div>Polygon</div>
+						<div><img data-src="img/sf/sf-polygon.png"></div>
+						<div class="fragment highlight-current-blue">POLYGON (30 10, 10 30, 40 40, 30 10)</div>
+					</div>
+
+					<div class="large"><em>(One geometry per attribute)</em></div>
+
+					<aside class="notes">
+						Jedes Geometrische Objekt hat ein Attribut
+						Gleiche viele Features wie Attribute
+					</aside>
+
+
+				</section>
+
+				<section data-transition="fade">
+					<h3>Simple Features </h3>
+
+					<div class="simple-feature-table">
+
+						<!-- <div class="sf-tbl-header">Type</div>
+							<div class="sf-tbl-header">Example</div>
+							<div class="sf-tbl-header">WKT</div> -->
+
+						<div><span class="highlight">Multi</span>Point</div>
+						<div><img data-src="img/sf/sf-multipoint.png"></div>
+						<div><span class="highlight">MULTI</span>POINT (30 10, 10 30, 40 40)</div>
+
+						<div><span class="highlight">Multi</span>LineString</div>
+						<div><img data-src="img/sf/sf-multilinestring.png"></div>
+						<div><span class="highlight">MULTI</span>LINESTRING ((30 10, 10 30, 40 40), (40 20, 20 40, 50
+							50))</div>
+
+						<div><span class="highlight">Multi</span>Polygon</div>
+						<div><img data-src="img/sf/sf-multipolygon.png"></div>
+						<div><span class="highlight">MULTI</span>POLYGON ((30 10, 10 30, 30 10), (40 20, 20 40, 40 20))
+						</div>
+					</div>
+
+					<div class="large"><em>(<span class="highlight">Multiple</span> geometries per attribute)</em></div>
+
+
+					<aside class="notes">
+						Verschiedene Objekte teilen sich Attribute
+						Mehr Features als Attribute
+
+						Simple Features sind in verschiedensten Systemen integriert:
+
+						<ul>
+							<li>R</li>
+							<li>PostGIS</li>
+							<li>Python (geopandas, shapely)</li>
+							<li>ESRI: versteckt und unzugänglich. Geometrien kaum manipulierbar → Transferable knowledge
+								- learn architectures, not frameworks
+							</li>
+
+						</ul>
+
+
+					</aside>
+				</section>
+				<section>
+
+					<p class="xx-large">Create a <code class="highlight">LineString</code></p>
+
+					<pre><code data-trim class="python" data-line-numbers="">
+						shapely.LineString([work, restaurant, swimmspot])
+					</code></pre>
+
+					<aside class="notes">
+						To make a LineString, we need a collection of points
+					</aside>
+				</section>
+
+				<section>
+					<p class="xx-large">Create a <code class="highlight">Polygon</code></p>
+
+					<pre><code data-trim class="python" data-line-numbers="">
+								shapely.Polygon([work, swimmspot, restaurant, work])
+							</code></pre>
+
+					<aside class="notes">
+						To make a Polygon, we need a collection of points, where the last point and the first are
+						identical
+					</aside>
+				</section>
+
+
+
+
+
+			</section>
+
+
+
+			<!-- </section> -->
+
+			<section>
+				<section class="blurred special" data-background-image="img/port-6670684_1280.jpg">
+
+					<h2>Importing vector data</h2>
+
+
+
+
+
+					<aside class="notes">
+						<ul>
+							<li>Typically, vector data is not created by hand, but imported</li>
+							<li>There are numerous vector data formats, the most infamous one is shapfile</li>
+							<li>there are better alternatives: Geopackage for smallish datasets</li>
+							<li>geoparquet / geoarrow for larger datasets</li>
+						</ul>
+					</aside>
+
+				</section>
+
+				<section>
+					<p class="r-fit-text">
+						<span class="highlight">Your task:</span>
+						Download vector data from your favorite data portal</code> <br>
+
+					</p>
+					<p style="margin-bottom: 0;" class="fragment x-large">if you don't have a "favorite data portal"</p>
+					<div class="fragment">
+						<img style="margin: 0;" src="img/shame-got.gif" alt="" srcset="">
+						<p style="margin-top: 0;" class="x-large">download datasets from <a
+								href="https://www.naturalearthdata.com/">naturalearthdata.com</a></p>
+					</div>
+
+					<aside class="notes">
+						<ul>
+							<li>remember to unzip your files in your current working directory!!!</li>
+							<li>Demonstrate os.getcwd() and emphasize that this is where data needs to be stored</li>
+						</ul>
+					</aside>
+
+				</section>
+
+				<section>
+					<p>Questions:</p>
+
+					<ul class="x-large">
+						<li class="fragment">What data <em>types</em> (<code class="highlight">Point</code>, <code
+								class="highlight">LineString</code>,
+							<code class="highlight">Polygon</code>) do you see?
+						</li>
+						<li class="fragment">What data <em>formats</em> did you come across?</li>
+						<ul>
+							<li class="fragment">Most vector data is stored as shapefile, geopackage, sqlite or csv</li>
+							<li class="fragment">For large files, see FlatGeobuf, GeoParquet / Geoarrow / DuckDB or PostGIS</li>
+							<li class="fragment">see also <a
+								href="https://gdal.org/drivers/vector/index.html">gdal.org/drivers/vector</a> </li>
+						</ul>
+
+					</ul>
+				</section>
+
+				<section>
+
+					<p class="xx-large">
+						<span class="highlight">Your task:</span>
+
+					<ul class="x-large">
+						<li>Download and import the "<em>Admin 0</em>" dataset from: <a
+								href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/">naturalearthdata.com</a><br>
+						</li>
+						<li>
+							Download and import the dataset <em><a
+									href="https://www.movebank.org/cms/webapp?gwt_fragment=page=studies,path=study72289508">Azores
+									Great Whales Satellite Telemetry Program</a></em>
+						</li>
+					</ul>
+
+					<br><br>
+
+					<p class="x-large">The links to the datasets can be found here: <br>
+						<!-- <a href="http://www.ratnaweera.xyz/workshop-ukraine-geopython/#datasets">ratnaweera.xyz/workshop-ukraine-geopython</a>	<br>
+						and <br> -->
+						<a href="https://bit.ly/geopython-workshop">bit.ly/geopython-workshop</a> → Datasets
+
+					</p>
+
+
+
+
+					</p>
+
+				</section>
+
+				<section>
+
+					<p class="x-large">To <code class="highlight">explore</code> multiple layers:</p>
+					<pre><code data-trim class="python" data-line-numbers="">
+
+						m = whales_p.explore()
+						land.explore(m = m)
+
+					</code></pre>
+				</section>
+
+
+				<section>
+					<p class="highlight">Case Study / Task:</p>
+
+					<p class="x-large">How many blue whale data points (<em>Balaenoptera musculus</em>) are within
+						100km of the Islands, how many are further away?</p>
+
+
+
+				</section>
+			</section>
+
+
+
+
+
+
+
+			<section>
+				<section class="blurred special" data-background-image="img/NDVI.png">
+					<h2>Raster Data in Python</h2>
+
+					<div class="footnote">
+						<div>Image Source: <a
+								href="https://engage.safe.com/blog/2016/12/geogeeks-guide-planets-satellite-imagery/">engage.safe.com</a>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<p>Before we start:</p>
+
+					<ol class="x-large">
+						<li class="fragment" style=" text-decoration: line-through">Start Jupyter Lab (Desktop)</li>
+						<li class="fragment" style=" text-decoration: line-through">Browse to a reasonable location</li>
+						<li class="fragment">Create a new Notebook</li>
+						<li class="fragment">Create a new cell, write <code class="highlight">import rasterio</code> and
+							execute that line with <kbd>Ctrl</kbd>+<kbd>Enter</kbd></li>
+						<li class="fragment">Give me a thumbs up 👍 if you are successful</li>
+					</ol>
+				</section>
+
+				<section>
+					<p class="highlight">Task:</p>
+
+					<ul class="x-large">
+						<li>Download the Dataset DHM 25 / 200</li>
+						<li>Download the Sentinel Dataset</li>
+					</ul>
+					
+					<p class="x-large">The links to the datasets can be found here: <br>
+						<!-- <a href="http://www.ratnaweera.xyz/workshop-ukraine-geopython/#datasets">ratnaweera.xyz/workshop-ukraine-geopython</a>	<br>
+						and <br> -->
+						<a href="https://bit.ly/geopython-workshop">bit.ly/geopython-workshop</a> → Datasets
+
+					</p>
+
+
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h2>Further Reading</h2>
+
+				<ul>
+					<li class="fragment"><a href="https://py.geocompx.org/">py.geocompx.org</a> (in Progress)</li>
+					<li class="fragment"><a href="https://geo-python-site.readthedocs.io">geo-python-site.readthedocs.io</a></li>
+					<li class="fragment"><a href="https://autogis-site.readthedocs.io">autogis-site.readthedocs.io</a></li>
+					<li class="fragment"><a href="https://geopandas.org">geopandas.org</a></li>
+					<li class="fragment"><a href="https://rasterio.readthedocs.io">rasterio.readthedocs.io</a></li>
+				</ul>
+				</section>
+
+				<section>
+					<h1>Thank you!</h1>
+				</section>
+			</section>
+
+			
+
+
+		</div>
+	</div>
+
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/notes/notes.js"></script>
+	<script src="revealjs/plugin/markdown/markdown.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+		 
+	</script>
+</body>
+
+</html>
