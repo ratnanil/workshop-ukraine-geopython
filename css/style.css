@@ -1,0 +1,195 @@
+.reveal .special h1,
+.reveal .special h2,
+.reveal .special h3,
+.reveal .special h4 {
+    text-shadow: 4px 4px #090909;
+}
+
+.reveal .strokeme h1,
+.reveal .strokeme h2,
+.reveal .strokeme h3,
+.reveal .strokeme h4 {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000 !important;
+}
+
+
+
+:root {
+    --blur: 5px;
+}
+
+.blurr-2px .slide-background-content {
+    --blur: 2px;
+}
+
+.blurred .slide-background-content {
+    filter: blur(var(--blur))
+}
+
+
+
+.large {
+    font-size: large;
+}
+
+.x-large {
+    font-size: x-large;
+}
+
+.xx-large {
+    font-size: xx-large;
+}
+
+ul.no-bullets {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#pip-conda {
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 20px
+}
+
+#pip-conda>div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.highlight {
+    color: orange
+}
+
+.code-snippet {
+    font-family: Consolas, monospace;
+    font-size: x-large;
+    text-align: left;
+}
+
+.fragment.bash-explained {
+    opacity: 0;
+}
+
+.fragment.bash-explained.visible {
+    color: rgba(128, 128, 128, 0.303);
+}
+
+.fragment.bash-explained.current-fragment {
+    color: #1b91ff;
+    font-weight: bold;
+}
+
+.footnote {
+    height: var(--slide-height);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: x-large;
+}
+
+.footnote > :first-child {
+    position: absolute !important;
+    font-size: large;
+    
+  }
+
+
+.mytable {
+    /* style="display: grid; font-size: x-large; column-gap: 20px;" */
+    display: grid;
+    font-size: x-large;
+}
+
+.mytable>div> :nth-child(odd) {
+    background-color: gray;
+}
+
+.mytable>div> :first-child {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.fragment.geodataframe,
+.fragment.geoseries,
+.fragment.geometry {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.fragment.geodataframe.current-fragment {
+    padding: 10px;
+    outline: 3px solid green;
+    outline-offset: 4px;
+}
+
+.fragment.geoseries.current-fragment {
+    outline: 3px solid red;
+    outline-offset: 4px;
+    font-size: larger;
+
+}
+
+.fragment.geometry.current-fragment {
+    outline: 5px solid #8eaadd;
+    outline-offset: 4px;
+    font-size: larger;
+}
+
+
+.simple-feature-table{
+    display: grid;
+    grid-template-columns: 2fr 1fr 5fr;
+    gap: 5px;
+    font-size: x-large;
+    justify-content: start;
+  }
+  
+  
+  .simple-feature-table > div{
+    background-color: rgb(145, 176, 206);
+    text-align: left;
+    padding: 5px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items:center;
+  }
+  
+  /* .simple-feature-table > div.sf-tbl-header{
+    background: none;
+  } */
+  
+  
+  .simple-feature-table > div:nth-child(3n+2){
+    /* background-color: red; */
+    text-align: center;
+    align-self: flex-start;
+    justify-content: center;
+  }
+  
+  .simple-feature-table > div:nth-child(3n+3){
+    /* background-color: red; */
+    font-family: monospace;
+    font-size: large;
+  }
+  
+  .simple-feature-table > div > img{
+    width: 80px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  kbd{
+    font-family: monospace;
+    font-size: smaller;
+    background-color: gray;
+    padding: 4px;
+    border-radius: 2px;
+  }
