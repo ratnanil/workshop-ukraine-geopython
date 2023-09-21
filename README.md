@@ -22,3 +22,5 @@ To follow along in the workshop, please install the following software:
 
 - [Natural Earth 10m cultural vectors](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/)
 - [Azores Great Whales Satellite Telemetry Program](https://filesender.switch.ch/filesender2/?s=download&token=9a9b0db0-9321-446c-8eb9-9eb099319501)
+- [DHM25/200](https://www.swisstopo.admin.ch/en/geodata/height/dhm25200.html)
+- [Sentinel](https://filesender.switch.ch/filesender2/?s=download&token=f190f8f6-8704-4ba7-b2d8-0dd968b000a5)
